@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react'
 import "./Auth.css";
 import Form from '../../components/AuthForm/AuthForm';
 
-function Auth() {
+const Auth = () => {
   const [isLogin, setIsLogin] = useState(false);
   const emailElement = useRef(null);
   const passwordElement = useRef(null);

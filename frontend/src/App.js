@@ -9,7 +9,7 @@ import Auth from './pages/Auth/Auth';
 
 import Game from './pages/Game/Game';
 
-function App() {
+const App = () => {
   return (
     <div>
       <Router>

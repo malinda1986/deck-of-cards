@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import pRetry from 'p-retry';
 import fetch from 'node-fetch';
 
+import {createLeaderBoard, finishGame, checkMatch, setCards, shuffle, getLeaderBoard} from '../../services/game/GameService'
+
 import List from '../../components/List/List'
 
-function DeckOfGames() {
+const DeckOfGames = () => {
   const [loading, setLoading] = useState(false);
   const [finalizedCards, setFinalizedCards] = useState([]);
   const [openedCards, setOpenedCards] = useState([]);
@@ -12,8 +14,6 @@ function DeckOfGames() {
   const [showLeaderBoard, setShowLeaderBoard] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
   const [leaders, setLeaders] = useState([]);
-
-
 
   const runFetchCards = useCallback(async () => {
     const response = await fetch('http://localhost:8080/api/v1/deck/create', {
@@ -29,7 +29,6 @@ function DeckOfGames() {
   });
 
   const handleClick = (name, index) => {
-    console.log('click------');
     console.log(name, index, openedCards.length)
     if (openedCards.length == 2) {
       setTimeout(() => {
@@ -37,7 +36,6 @@ function DeckOfGames() {
       }, 750);
     } else {
       setMoves(moves +1);
-     
       let selected = {
         name,
         index,
@@ -49,8 +47,6 @@ function DeckOfGames() {
       setOpenedCards([...oc])
       setFinalizedCards([...finalCards])
       finishGame(finalCards)
-      console.log('final cards', finalCards, finalCards[index]);
-      console.log('open cards', openedCards);
       
       if (openedCards.length == 2) {
         setTimeout(() => {
@@ -82,16 +78,13 @@ function DeckOfGames() {
         isFinished = false;
       }
     });
-    console.log('is fiiii============', isFinished)
     if(isFinished) {
       addToLeaderBoard();
     }
-
     setIsFinished(isFinished);
   }
 
   const check = () => {
-    console.log('check------');
     const finalCards  = finalizedCards;
     const oc = openedCards;
     if ((oc[0].name == oc[1].name) && (oc[0].index != oc[1].index)) {
@@ -101,10 +94,7 @@ function DeckOfGames() {
       finalCards[oc[0].index].close = true;
       finalCards[oc[1].index].close = true;
     }
-    console.log('final cards -2', finalizedCards);
-    //finishGame(finalizedCards);   
     setFinalizedCards([...finalCards])
-
     setOpenedCards([])
     
   }
@@ -188,9 +178,7 @@ function DeckOfGames() {
     ) : (<div className="spinner">
       <span className="spinner__container"></span>
     </div>)
-    
     }
-
     <br/><br/>
     <hr/>
     { showLeaderBoard ? <List items={leaders} /> : '' }
