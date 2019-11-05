@@ -1,0 +1,166 @@
+
+
+:root {
+  font-size: 10px;
+
+  --color-primary: rgba(237, 37, 78, 1);
+  --color-accent: hsl(49, 93%, 55%); /* lighting default: 67% */
+  --color-light: rgba(244, 255, 253, 1);
+  --color-dark: rgba(1, 25, 54, 1);
+  --color-gray: rgba(70, 83, 98, 1);
+  --color-box-shadow: rgba(32, 33, 36, 0.28);
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+body {
+  background: #fff;
+  font-family: 'Delius', cursive;
+}
+#app {
+  padding: 35px;
+  width: 80%;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+.playground {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  perspective: 1000px;
+  margin-bottom: -15px;
+}
+.playground .card {
+  width: 15%;
+  user-select: none;
+  height: 110px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 15px;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+/* .playground .card div {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transition: 0.6s;
+  background: #f4f5f7; 
+} */
+.playground .card .front {
+  font-size: 50px;
+  line-height: 120px;
+  cursor: pointer;
+  color: #b9bfcc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.playground .card .back {
+  transform: rotateY(180deg);
+  line-height: 110px;
+}
+.playground .card .back img {
+  vertical-align: middle;
+  width: 70%;
+}
+.playground .card .opened {
+  transform: rotateY(180deg);
+}
+.playground .card .matched {
+  transform: rotateY(180deg);
+}
+.playground .card .matched .back {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05) inset;
+  animation: selected 0.8s 0s ease 1;
+  animation-fill-mode: both;
+  opacity: 0.2;
+}
+@keyframes selected {
+  0% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+.btn_card {
+  background-color: #af4c8c;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn_board {
+  background-color: #ccb668;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.lbl_moves {
+  background-color:#68cca7;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 42px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.lbl_lb {
+  background-color:#bd9b5e;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 42px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.lbl_lb_text {
+  background-color:#7a5ebd;
+  border: none;
+  width: 100%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

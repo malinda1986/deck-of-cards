@@ -1,0 +1,81 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 2.5rem;
+
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0.1rem 0.6rem 0 var(--color-box-shadow);
+  justify-content: space-between;
+  background-color: var(--color-light);
+
+  z-index: 100;
+}
+
+.navbar__logo h1 {
+  font-size: 2.5rem;
+  color: var(--color-dark);
+  margin: auto;
+}
+
+nav {
+  max-width: 800px;
+  background: var(--color-primary);
+  height: 100%;
+}
+
+nav::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+nav ul li {
+  float: left;
+  position: relative;
+}
+
+nav ul li a,
+nav ul li a:link,
+nav ul li a:visited,
+nav ul li button {
+  display: block;
+  color: var(--color-light);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border: none;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+  background: inherit;
+  cursor: pointer;
+}
+
+nav ul li a:hover,
+nav ul li a:focus,
+nav ul li a:active,
+nav ul li a.active,
+nav ul li button:hover,
+nav ul li button:focus,
+nav ul li button:active {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+nav ul li a:not(:only-child)::after {
+  padding-left: 4px;
+  content: " ▾";
+}

@@ -1,0 +1,12 @@
+{
+    "hostname": "dev",
+    "api": {
+        "version" : 1,
+        "app_path": "/api/v1"
+    },
+    "deckAPI": {
+      "host": "https://deckofcardsapi.com/api"
+    },
+    "port": 8080,
+    "ip": "localhost"
+}
