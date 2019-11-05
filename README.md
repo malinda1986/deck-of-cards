@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Clone the project from ``https://titanitnz.visualstudio.com/Incentive%20App/_git/Incentive-API``
+Clone the project from ``https://github.com/malinda1986/deck-of-cards.git``
 
 
 ### How to run
