@@ -21,8 +21,16 @@ Clone the project from ``https://github.com/malinda1986/deck-of-cards.git``
  - api server start ```http://localhost:8080``` (make sure 8080 port is free)
  - api doc is available under ```http://localhost:8080/apidoc```
 
-## API doc
- - 
+## How to play
+ - run the frontend and goto ```http://localhost:3000```
+ - goto login screen and enter details
+ - click load cards 
+ - select card one by one (keep some interval)
+ - you can see the move count
+ - once all cards match , it will display the success message
+ - click leader board to view the leader board result
+ - goto login screen and log with different details and play the game
+ - then view the leader board
 ## Running the tests
 
  - cd into frontend and run `yarn cypress:open`
